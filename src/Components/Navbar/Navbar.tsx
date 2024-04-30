@@ -5,6 +5,8 @@ import TrainingIconMin from "../../assets/svg/mobile/TrainingIconMin";
 import TradingIconMin from "../../assets/svg/mobile/TradingIconMin";
 import AutomationIconMin from "../../assets/svg/mobile/AutomationIconMin";
 import NavbarItems from "../NavbarItems/NavbarItems";
+import NotificationBellIconMin from "../../assets/svg/mobile/NotificationBellIconMin";
+import UserProfileIcon from "../../assets/svg/mobile/UserProfileIcon";
 
 const navBarItems = [
   {
@@ -37,7 +39,7 @@ const navBarItems = [
 function Navbar() {
   return (
     <nav className="w-12 h-dvh">
-      <div className="flex flex-col h-full w-max w-min-12 items-center bg-neutral-900">
+      <div className="flex flex-col justify-between h-full w-max w-min-12 items-center bg-neutral-900 px-1">
         <section className="flex flex-col">
           <div className="flex items-center justify-center w-10 mt-6">
             <img src={logo} alt="logo" className="w-full" />
@@ -52,6 +54,10 @@ function Navbar() {
               />
             ))}
           </ul>
+        </section>
+        <section className="flex flex-col gap-5 items-center justify-center mb-12">
+          <NotificationBellIconMin />
+          <UserProfileIcon />
         </section>
       </div>
     </nav>
