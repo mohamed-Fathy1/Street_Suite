@@ -5,7 +5,6 @@ import TrainingIconMin from "../../assets/svg/mobile/TrainingIconMin";
 import TradingIconMin from "../../assets/svg/mobile/TradingIconMin";
 import AutomationIconMin from "../../assets/svg/mobile/AutomationIconMin";
 import NavbarItems from "../NavbarItems/NavbarItems";
-import { act } from "react";
 
 const navBarItems = [
   {
