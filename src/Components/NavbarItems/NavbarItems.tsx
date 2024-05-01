@@ -10,7 +10,9 @@ interface NavbarItemsProps {
 
 function NavbarItems({ icon, link, active, title }: NavbarItemsProps) {
   return (
-    <li className={classNames(styles.nav_item, active && styles.active)}>
+    <li
+      className={classNames("w-fit", styles.nav_item, active && styles.active)}
+    >
       <a href={link} className="flex items-center">
         {icon}
         <span className={classNames("", styles.navbar_item_title)}>

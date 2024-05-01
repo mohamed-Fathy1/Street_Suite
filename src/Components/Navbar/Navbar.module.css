@@ -52,9 +52,6 @@
   .navbar:hover ul {
     padding: 2rem 0 0 0.5rem;
   }
-  .navbar ul li {
-    position: relative;
-  }
   .active:hover path {
     fill: #53acff;
   }

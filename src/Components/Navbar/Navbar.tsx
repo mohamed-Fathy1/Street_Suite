@@ -68,13 +68,15 @@ function Navbar() {
           <nav>
             <ul className="flex flex-col items-center justify-center mt-11 gap-4">
               {navBarItems.map((item) => (
-                <NavbarItems
-                  key={item.id}
-                  title={item.title}
-                  icon={item.icon}
-                  link={item.link}
-                  active={item.active}
-                />
+                <div className="relative w-full" key={item.id}>
+                  <NavbarItems
+                    key={item.id}
+                    title={item.title}
+                    icon={item.icon}
+                    link={item.link}
+                    active={item.active}
+                  />
+                </div>
               ))}
             </ul>
           </nav>
