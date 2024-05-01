@@ -13,7 +13,7 @@
   }
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (min-width: 768px) {
   .navbar {
     position: fixed;
     max-width: 3.938rem;
@@ -122,6 +122,67 @@
   }
 
   li:not(.active):hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .navbar footer {
+    position: absolute;
+    bottom: 0;
+    left: 0.85rem;
+  }
+  .navbar .footer {
+    position: relative;
+    align-items: start;
+    padding: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  .navbar:hover .footer {
+    padding: 0 0 2rem 0.5rem;
+  }
+
+  .navbar footer svg {
+    width: 2rem;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .navbar footer .footer_noti_text,
+  .navbar footer .footer_profile_text {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-align: left;
+    visibility: hidden;
+    width: 0px;
+    overflow: clip;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.11, 0.59, 0.18, 1.63),
+      opacity 0.9s cubic-bezier(0.11, 0.59, 0.18, 1.63);
+  }
+
+  .navbar:hover footer .footer_noti_text,
+  .navbar:hover footer .footer_profile_text {
+    margin-left: 0.5rem;
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
+  }
+
+  .navbar .footer .footer_trademark {
+    position: absolute;
+    display: block;
+    color: #424242;
+    font-size: 0.875rem;
+    bottom: -5px;
+    margin-left: 0.789rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.11, 0.59, 0.18, 1.63),
+      opacity 0.9s cubic-bezier(0.11, 0.59, 0.18, 1.63);
+  }
+
+  .navbar:hover footer .footer_trademark {
     visibility: visible;
     opacity: 1;
   }

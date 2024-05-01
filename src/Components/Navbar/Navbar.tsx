@@ -50,14 +50,14 @@ const navBarItems = [
 
 function Navbar() {
   return (
-    <nav className="w-12 h-dvh">
+    <div className="w-12 h-dvh">
       <div
         className={classNames(
           "flex flex-col justify-between h-full w-max w-min-12 bg-neutral-900 px-1 group",
           styles.navbar
         )}
       >
-        <section className="flex flex-col relative">
+        <header className="flex flex-col relative">
           <div className="flex items-center justify-center mt-6">
             <img
               src={logo}
@@ -65,26 +65,66 @@ function Navbar() {
               className={classNames("", styles.nav_item_img)}
             />
           </div>
-          <ul className="flex flex-col items-center justify-center mt-11 gap-4">
-            {navBarItems.map((item) => (
-              <NavbarItems
-                key={item.id}
-                title={item.title}
-                icon={item.icon}
-                link={item.link}
-                active={item.active}
-              />
-            ))}
-          </ul>
-        </section>
-        <section className="flex flex-col gap-5 items-center justify-center mb-12">
-          <div className="lg:hidden">
-            <NotificationBellIconMin />
+          <nav>
+            <ul className="flex flex-col items-center justify-center mt-11 gap-4">
+              {navBarItems.map((item) => (
+                <NavbarItems
+                  key={item.id}
+                  title={item.title}
+                  icon={item.icon}
+                  link={item.link}
+                  active={item.active}
+                />
+              ))}
+            </ul>
+          </nav>
+        </header>
+        <footer className="mb-12">
+          <div
+            className={classNames(
+              "flex flex-col justify-center items-center gap-4",
+              styles.footer
+            )}
+          >
+            <div
+              className={classNames(
+                "lg:hidden flex items-center",
+                styles.footer_noti
+              )}
+            >
+              <NotificationBellIconMin />
+              <span
+                className={classNames(
+                  "hidden text-sm text-white text-nowrap",
+                  styles.footer_noti_text
+                )}
+              >
+                Notifications
+              </span>
+            </div>
+            <div
+              className={classNames("flex items-center", styles.footer_profile)}
+            >
+              <UserProfileIcon />
+              <div
+                className={classNames(
+                  "hidden flex-col justify-center",
+                  styles.footer_profile_text
+                )}
+              >
+                <span className="text-base font-bold text-white text-nowrap">
+                  Moni Roy
+                </span>
+                <span className="text-xs text-neutral-400">Beginner</span>
+              </div>
+            </div>
+            <div className={classNames("hidden", styles.footer_trademark)}>
+              Street Suite 2.0
+            </div>
           </div>
-          <UserProfileIcon />
-        </section>
+        </footer>
       </div>
-    </nav>
+    </div>
   );
 }
 
