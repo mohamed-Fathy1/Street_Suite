@@ -65,7 +65,7 @@ function Navbar() {
               className={classNames("", styles.nav_item_img)}
             />
           </div>
-          <ul className="flex flex-col items-center justify-center mt-11 gap-6">
+          <ul className="flex flex-col items-center justify-center mt-11 gap-4">
             {navBarItems.map((item) => (
               <NavbarItems
                 key={item.id}
@@ -78,7 +78,9 @@ function Navbar() {
           </ul>
         </section>
         <section className="flex flex-col gap-5 items-center justify-center mb-12">
-          <NotificationBellIconMin />
+          <div className="lg:hidden">
+            <NotificationBellIconMin />
+          </div>
           <UserProfileIcon />
         </section>
       </div>

@@ -1,4 +1,12 @@
 /* no hover */
+
+.nav_item_img {
+  width: 2.395rem;
+}
+.navbar_item_title {
+  display: none;
+}
+
 @media (hover: none) and (max-width: 768px) {
   .nav_item:first-of-type path {
     fill: #53acff;
@@ -8,36 +16,39 @@
 @media (hover: hover) {
   .navbar {
     position: fixed;
-    max-width: 2.938rem;
-    min-width: 2.9rem;
+    max-width: 3.938rem;
+    min-width: 3.9rem;
     left: 7px;
     top: 0;
     transition: all 0.4s cubic-bezier(0.11, 0.59, 0.18, 1.63);
   }
   .navbar:hover {
-    max-width: 11.25rem;
-    min-width: 11rem; /* width: 11rem; */
+    max-width: 12.25rem;
+    min-width: 12rem; /* width: 11rem; */
     border-radius: 8px;
     box-shadow: 10px 4px 21.1px 0px #00000061;
   }
 
   .nav_item_img {
     display: inline-block;
-    width: 2.5rem;
+    width: 3.9rem;
     transition: all 0.2s cubic-bezier(0.11, 0.59, 0.18, 1.63);
   }
   .navbar:hover .nav_item_img {
-    width: 7.75rem;
+    width: 8.75rem;
   }
   .navbar ul {
     position: absolute;
     align-items: start;
     top: 3.063rem;
-    left: 0.4rem;
+    left: 0.85rem;
     transition: all 0.2s ease-in-out;
   }
   .navbar:hover ul {
     padding: 2rem 0 0 0.5rem;
+  }
+  .navbar ul li {
+    position: relative;
   }
   .active:hover path {
     fill: #53acff;
@@ -46,8 +57,15 @@
   .navbar ul a {
     gap: 0.75rem;
   }
+  .navbar ul a svg {
+    font-size: 2rem;
+  }
+  .navbar:hover ul li a svg {
+    width: 2rem;
+    font-size: 1.295rem;
+  }
   .navbar_item_title {
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 19px;
     font-weight: 600;
     line-height: 28.5px;
@@ -55,6 +73,7 @@
     visibility: hidden;
     width: 0px;
     overflow: clip;
+    display: inline-block;
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.11, 0.59, 0.18, 1.63),
       opacity 0.9s cubic-bezier(0.11, 0.59, 0.18, 1.63);
@@ -72,5 +91,38 @@
 
   li:not(.active) .navbar_item_title {
     color: #5d5d5d;
+  }
+
+  li:not(.active)::after {
+    content: "Coming Soon";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: 700;
+    font-size: 0.875rem;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(
+      rgba(40, 80, 109, 0.932),
+      rgba(36, 58, 82, 0.89)
+    );
+    border-radius: 0.275rem;
+    background-clip: padding-box;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    box-shadow: 1px 1px 15px 1px rgba(35, 49, 63, 0.863),
+      -1px -1px 15px 1px rgba(35, 49, 63, 0.863);
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-shadow: 0px 0px 5px #000000;
+    transition: opacity 0.5s cubic-bezier(0.11, 0.59, 0.18, 1.63),
+      visibility 0.5s cubic-bezier(0.11, 0.59, 0.18, 1.63);
+  }
+
+  li:not(.active):hover::after {
+    visibility: visible;
+    opacity: 1;
   }
 }
