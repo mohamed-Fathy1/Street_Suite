@@ -2,6 +2,10 @@ details[open] summary > div {
   background-color: #53acff !important;
 }
 
+details summary:has(.seperator)::-webkit-details-marker {
+  display: none;
+}
+
 details[open] summary > div .seperator {
   background-color: white !important;
 }

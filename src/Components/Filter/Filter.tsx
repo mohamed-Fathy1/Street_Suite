@@ -47,7 +47,7 @@ function Filter() {
           <span className="text-[0.875rem] font-bold">Filters Applied</span>
           <span className="text-[0.875rem] font-bold">Clear All</span>
         </div>
-        <div className="flex flex-wrap gap-2 min-h-10 max-h-20 rounded-lg bg-neutral-800 px-2 py-1 w-full overflow-scroll">
+        <div className="flex flex-wrap gap-2 min-h-10 max-h-20 rounded-lg bg-neutral-800 px-2 py-1 w-full overflow-auto">
           {selectedIndustries.map((industry: any) => (
             <div
               key={industry}
