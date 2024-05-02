@@ -1,0 +1,7 @@
+label:has(input[type="radio"]:checked) div {
+  background-color: #53acff;
+}
+
+label:has(input[type="radio"]) {
+  margin-left: 1rem;
+}
