@@ -68,7 +68,10 @@ function Navbar() {
           <nav>
             <ul className="flex flex-col items-center justify-center mt-11 gap-4">
               {navBarItems.map((item) => (
-                <div className="relative w-full" key={item.id}>
+                <div
+                  className="relative flex justify-center w-full"
+                  key={item.id}
+                >
                   <NavbarItems
                     key={item.id}
                     title={item.title}
