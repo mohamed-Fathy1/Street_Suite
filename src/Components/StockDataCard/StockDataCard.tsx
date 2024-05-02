@@ -6,8 +6,8 @@ import StockDataCardSeparator from "../StockDataContainer/StockDataCardSeparator
 
 function StockDataCard({ stock }: { stock: any }) {
   return (
-    <div className="flex items-center justify-evenly  gap-2 bg-zinc-800 p-4 rounded-md hover:bg-blue-500 transition-colors duration-200 ease-in-out group">
-      <div className="flex items-center gap-1 md:gap-3 w-[20%] md:px-[5%]">
+    <div className="@container flex items-center justify-evenly  gap-2 bg-zinc-800 p-4 rounded-md hover:bg-blue-400 transition-colors duration-200 ease-in-out group">
+      <div className="flex items-center gap-1 md:gap-3 w-[20%] @md:px-[2vw] @lg:px-[5vw] md:px-[2vw]">
         <div>
           <SymbolIconMin />
         </div>
@@ -16,7 +16,7 @@ function StockDataCard({ stock }: { stock: any }) {
 
       <StockDataCardSeparator />
 
-      <div className="flex items-center gap-1 md:gap-3 w-[20%] md:px-[5%]">
+      <div className="flex items-center gap-1 md:gap-3 w-[20%] px-[1vw] @xs:px-[2vw] @md:px-[2vw] @lg:px-[5vw] md:px-[3vw]">
         <div>
           <PriceIconMin />
         </div>
@@ -25,13 +25,13 @@ function StockDataCard({ stock }: { stock: any }) {
 
       <StockDataCardSeparator />
 
-      <div className="flex items-center gap-1 md:gap-3 w-[20%] md:px-[5%]">
+      <div className="flex items-center gap-1 md:gap-3 w-[20%] @md:px-[2vw] @lg:px-[5vw] md:px-[2vw]">
         <div>
           <ChangeIconMin />
         </div>
         <div
           className="text-white text-xs md:text-sm font-bold whitespace-nowrap"
-          style={{ color: stock.change > 0 ? "#00FF00" : "#FF0000" }}
+          style={{ color: stock.change > 0 ? "#118F4B" : "#D94111" }}
         >
           {stock.changePercent} %
         </div>
@@ -39,7 +39,7 @@ function StockDataCard({ stock }: { stock: any }) {
 
       <StockDataCardSeparator />
 
-      <div className="flex items-center gap-1 md:gap-3 w-[20%] md:px-[5%]">
+      <div className="flex items-center gap-1 md:gap-3 w-[20%] @md:px-[1vw] @lg:px-[3vw] md:px-[1vw]">
         <div>
           <RiskIconMin />
         </div>

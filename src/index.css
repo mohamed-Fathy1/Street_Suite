@@ -23,14 +23,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* a {
+a {
   font-weight: 500;
-  color: #ffffff;
-  text-decoration: inherit;
+  color: #53acff;
+  text-decoration: underline;
 }
 a:hover {
   color: #ffffff;
-} */
+}
 
 body {
   display: flex;

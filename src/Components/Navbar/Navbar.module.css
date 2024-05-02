@@ -60,6 +60,8 @@
   }
 
   .navbar ul a {
+    color: #ffffff;
+    text-decoration: none;
     gap: 0.75rem;
   }
   .navbar ul a svg {

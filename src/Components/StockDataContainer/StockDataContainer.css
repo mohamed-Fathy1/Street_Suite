@@ -1,0 +1,7 @@
+details[open] summary > div {
+  background-color: #53acff !important;
+}
+
+details[open] summary > div .seperator {
+  background-color: white !important;
+}
