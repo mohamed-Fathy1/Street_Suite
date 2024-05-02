@@ -9,7 +9,7 @@ import "./Alerts.css";
 function Alerts() {
   return (
     <div className="@container pl-3 pt-7 flex gap-5 flex-1 max-h-dvh">
-      <div className="lg:max-w-2xl flex-1">
+      <div className="flex-1">
         <header className="flex  items-center @[31em]:gap-5">
           <HeaderTitle color="white" sideColor="#53ACFF">
             Alerts
@@ -28,7 +28,7 @@ function Alerts() {
           <StockDataContainer />
         </main>
       </div>
-      <div className="h-full ml-auto">
+      <div className="h-full ml-auto flex items-center">
         <Filter />
       </div>
     </div>

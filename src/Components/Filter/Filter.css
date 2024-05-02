@@ -14,3 +14,9 @@ div:has(> input[type="checkbox"]:checked) {
   background-color: #53acff;
   color: #313131;
 }
+
+@media (min-width: 70.938em) and (max-width: 80.938em) {
+  .filter__container {
+    width: 25rem !important;
+  }
+}

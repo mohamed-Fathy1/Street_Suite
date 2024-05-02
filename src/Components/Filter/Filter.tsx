@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchIcon from "../../assets/svg/SearchIcon";
 import "./Filter.css";
+import RadioButtons from "../RadioButtons/RadioButtons";
+import ButtonPrimary from "../Buttons/ButtonPrimary";
 
 const industries = [
   { name: "Healthcare", id: 1, img: "https://via.placeholder.com/150" },
@@ -37,7 +39,7 @@ function Filter() {
   return (
     <div
       style={{ backgroundColor: "#181818" }}
-      className="flex flex-col justify-center rounded-l-lg py-4 px-7 md:w-[20rem]"
+      className="flex-col justify-center rounded-l-lg py-4 px-7 hidden lg:flex lg:w-[20rem] xl:w-[27rem] filter__container"
     >
       <h2 className="text-2xl text-center font-bold">Filter</h2>
       <div className="flex flex-col items-center gap-1 mt-2">
@@ -127,7 +129,38 @@ function Filter() {
               </div>
             </details>
           </div>
+          <div className="flex justify-around mt-4">
+            <details>
+              <summary className="text-[0.875rem] font-bold">
+                <h3 className="inline-block">Market Cap</h3>
+              </summary>
+              <div className="mt-1">
+                <div className="flex flex-col gap-2">
+                  <RadioButtons group="marketCap">Micro</RadioButtons>
+                  <RadioButtons group="marketCap">Small</RadioButtons>
+                  <RadioButtons group="marketCap">Large</RadioButtons>
+                </div>
+              </div>
+            </details>
+            <details>
+              <summary className="text-[0.875rem] font-bold">
+                <h3 className="inline-block">Risk Level</h3>
+              </summary>
+              <div className="mt-1">
+                <div className="flex flex-col gap-2">
+                  <RadioButtons group="dividendYield">Low Risk</RadioButtons>
+                  <RadioButtons group="dividendYield">Med Risk</RadioButtons>
+                  <RadioButtons group="dividendYield">High Risk</RadioButtons>
+                </div>
+              </div>
+            </details>
+          </div>
         </div>
+      </div>
+      <div className="mt-4 mx-auto w-fit">
+        <ButtonPrimary size="lg" py="5px" px="3rem">
+          Apply
+        </ButtonPrimary>
       </div>
     </div>
   );

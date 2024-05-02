@@ -6,8 +6,8 @@ interface ButtonPrimaryProps {
 }
 
 function ButtonPrimary({
-  px = "6",
-  py = "2",
+  px = "6px",
+  py = "2px",
   size = "md",
   children,
 }: ButtonPrimaryProps) {
@@ -26,7 +26,7 @@ function ButtonPrimary({
             ? "1.25rem"
             : "1.5rem",
       }}
-      className="text-white bg-blue-500 rounded-md focus:outline-none box-border border-0 cursor-pointer hover:bg-blue-600 transition-colors duration-200 ease-in-out"
+      className="text-white font-bold bg-blue-500 rounded-md w-fit focus:outline-none box-border border-0 cursor-pointer hover:bg-blue-600 transition-colors duration-200 ease-in-out"
     >
       {children}
     </button>
