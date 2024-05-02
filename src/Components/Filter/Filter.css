@@ -1,0 +1,16 @@
+div:has(> input[type="checkbox"]) {
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 1px 5px;
+  width: fit-content;
+}
+
+div:has(> input[type="checkbox"]):hover {
+  background-color: #53acff;
+  color: #313131;
+}
+
+div:has(> input[type="checkbox"]:checked) {
+  background-color: #53acff;
+  color: #313131;
+}
