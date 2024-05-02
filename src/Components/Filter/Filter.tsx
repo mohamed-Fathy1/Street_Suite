@@ -24,7 +24,7 @@ const industries = [
 function Filter() {
   const [selectedIndustries, setSelectedIndustries] = useState<any>([]);
 
-  const handleIndustryChange = (e) => {
+  const handleIndustryChange = (e: any) => {
     const checked = e.target.checked;
     const value = e.target.nextSibling.textContent;
     if (checked) {
@@ -53,9 +53,10 @@ function Filter() {
               key={industry}
               className="flex items-center gap-2 bg-blue-400 py-0.5 px-1 rounded h-fit text-neutral-800"
               onClick={() => {
-                document
-                  .querySelector(`input[value=${industry.replace(" ", "")}`)
-                  ?.click();
+                const inputElement = document.querySelector(
+                  `input[value=${industry.replace(" ", "")}`
+                ) as HTMLInputElement;
+                inputElement?.click();
                 setSelectedIndustries(
                   selectedIndustries.filter(
                     (selectedIndustry: any) => selectedIndustry !== industry
