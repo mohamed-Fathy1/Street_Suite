@@ -48,41 +48,47 @@ function Filter() {
           <span className="text-[0.875rem] font-bold">Clear All</span>
         </div>
         <div className="flex flex-wrap gap-2 min-h-10 max-h-20 rounded-lg bg-neutral-800 px-2 py-1 w-full overflow-auto">
-          {selectedIndustries.map((industry: any) => (
-            <div
-              key={industry}
-              className="flex items-center gap-2 bg-blue-400 py-0.5 px-1 rounded h-fit text-neutral-800"
-              onClick={() => {
-                const inputElement = document.querySelector(
-                  `input[value=${industry.replace(" ", "")}`
-                ) as HTMLInputElement;
-                inputElement?.click();
-                setSelectedIndustries(
-                  selectedIndustries.filter(
-                    (selectedIndustry: any) => selectedIndustry !== industry
-                  )
-                );
-              }}
-            >
-              <span className="text-xs">{industry}</span>
-              <button className="focus:outline-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-3 w-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-          ))}
+          {selectedIndustries.length > 0 ? (
+            selectedIndustries.map((industry: any) => (
+              <div
+                key={industry}
+                className="flex items-center gap-2 bg-blue-400 py-0.5 px-1 rounded h-fit text-neutral-800"
+                onClick={() => {
+                  const inputElement = document.querySelector(
+                    `input[value=${industry.replace(" ", "")}`
+                  ) as HTMLInputElement;
+                  inputElement?.click();
+                  setSelectedIndustries(
+                    selectedIndustries.filter(
+                      (selectedIndustry: any) => selectedIndustry !== industry
+                    )
+                  );
+                }}
+              >
+                <span className="text-xs">{industry}</span>
+                <button className="focus:outline-none">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-3 w-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            ))
+          ) : (
+            <span className="text-[0.875rem] p-1 text-neutral-500">
+              No filters applied
+            </span>
+          )}
         </div>
       </div>
       <div
@@ -108,7 +114,7 @@ function Filter() {
             </div>
           </div>
           <div className="mt-4">
-            <details>
+            <details open>
               <summary className="text-[0.875rem] font-bold">
                 <h3 className="inline-block">Industry</h3>
               </summary>
@@ -131,7 +137,7 @@ function Filter() {
             </details>
           </div>
           <div className="flex justify-around mt-4">
-            <details>
+            <details open>
               <summary className="text-[0.875rem] font-bold">
                 <h3 className="inline-block">Market Cap</h3>
               </summary>
@@ -143,7 +149,7 @@ function Filter() {
                 </div>
               </div>
             </details>
-            <details>
+            <details open>
               <summary className="text-[0.875rem] font-bold">
                 <h3 className="inline-block">Risk Level</h3>
               </summary>

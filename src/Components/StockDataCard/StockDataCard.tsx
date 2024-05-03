@@ -6,7 +6,7 @@ import StockDataCardSeparator from "../StockDataContainer/StockDataCardSeparator
 
 function StockDataCard({ stock }: { stock: any }) {
   return (
-    <div className="@container flex items-center justify-evenly  gap-2 bg-zinc-800 p-4 rounded-md hover:bg-blue-400 transition-colors duration-200 ease-in-out group">
+    <div className="@container flex items-center justify-evenly  gap-2 bg-zinc-800 p-4 rounded-md transition-colors duration-200 ease-in-out group">
       <div className="flex items-center gap-1 md:gap-3 w-[20%] @md:px-[2vw] @lg:px-[5vw] md:px-[2vw]">
         <div>
           <SymbolIconMin />

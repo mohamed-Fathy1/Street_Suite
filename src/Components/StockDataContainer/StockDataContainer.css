@@ -2,10 +2,19 @@ details[open] summary > div {
   background-color: #53acff !important;
 }
 
+details[open] summary > div .seperator {
+  background-color: white !important;
+}
 details summary:has(.seperator)::-webkit-details-marker {
   display: none;
 }
 
-details[open] summary > div .seperator {
-  background-color: white !important;
+@media (hover: hover) {
+  details summary:hover > div {
+    background-color: #53acff !important;
+  }
+
+  details summary:hover > div .seperator {
+    background-color: white !important;
+  }
 }
