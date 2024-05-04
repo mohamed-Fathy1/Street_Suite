@@ -26,7 +26,7 @@ function ButtonPrimary({
             ? "1.25rem"
             : "1.5rem",
       }}
-      className="text-white font-bold bg-blue-500 rounded-md w-fit focus:outline-none box-border border-0 cursor-pointer hover:bg-blue-600 transition-colors duration-200 ease-in-out"
+      className="text-white font-semibold bg-blue-500 rounded-md w-fit focus:outline-none box-border border-0 cursor-pointer hover:bg-blue-600 transition-colors duration-200 ease-in-out"
     >
       {children}
     </button>

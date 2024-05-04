@@ -92,10 +92,7 @@ function Navbar() {
             )}
           >
             <div
-              className={classNames(
-                "lg:hidden flex items-center",
-                styles.footer_noti
-              )}
+              className={classNames("flex items-center", styles.footer_noti)}
             >
               <NotificationBellIconMin />
               <span

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchIcon from "../../assets/svg/SearchIcon";
 import "./Filter.css";
 import RadioButtons from "../RadioButtons/RadioButtons";
 import ButtonPrimary from "../Buttons/ButtonPrimary";
+import WheelPicker from "../WheelPicker/WheelPicker";
+import classNames from "classnames";
+import ButtonSecondary from "../Buttons/ButtonSecondary";
 
 const industries = [
   { name: "Healthcare", id: 1, img: "https://via.placeholder.com/150" },
@@ -21,7 +24,7 @@ const industries = [
   { name: "Financials", id: 10, img: "https://via.placeholder.com/150" },
 ];
 
-function Filter() {
+function Filter({ isOpen, setOpen }: any) {
   const [selectedIndustries, setSelectedIndustries] = useState<any>([]);
 
   const handleIndustryChange = (e: any) => {
@@ -36,11 +39,47 @@ function Filter() {
     }
   };
 
+  useEffect(() => {
+    // close filter when clicked outside
+    const handleClickOutside = (e: any) => {
+      if (e.target.classList.contains("filter__backdrop")) {
+        console.log("clicked outside");
+        setOpen();
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div
       style={{ backgroundColor: "#181818" }}
-      className="flex-col justify-center rounded-l-lg py-4 px-7 hidden lg:flex lg:w-[20rem] xl:w-[27rem] filter__container"
+      className="relative flex-col justify-center rounded-lg lg:rounded-l-lg py-4 px-7  lg:flex lg:w-[20rem] xl:w-[27rem] filter__container"
     >
+      <button
+        className={classNames(
+          "absolute top-4 right-4 focus:outline-none",
+          isOpen ? "block" : "hidden"
+        )}
+        onClick={() => setOpen()}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
       <h2 className="text-2xl text-center font-bold">Filter</h2>
       <div className="flex flex-col items-center gap-1 mt-2">
         <div className="flex gap-5 w-full justify-between px-1">
@@ -118,19 +157,21 @@ function Filter() {
               <summary className="text-[0.875rem] font-bold">
                 <h3 className="inline-block">Industry</h3>
               </summary>
-              <div className="mt-1 columns-2">
+              <div className="mt-1 flex flex-col flex-wrap max-h-36 gap-x-1">
                 {industries.map((industry) => (
-                  <div
-                    key={industry.id}
-                    className="flex mb-1 items-center gap-2 relative"
-                  >
-                    <input
-                      type="checkbox"
-                      className="absolute opacity-0 h-full w-full"
-                      value={industry.name.replace(" ", "")}
-                      onChange={handleIndustryChange}
-                    />
-                    <span className="text-xs">{industry.name}</span>
+                  <div className="lg:border-l-2 py-0.5 border-white pl-1">
+                    <div
+                      key={industry.id}
+                      className="flex items-center gap-2 relative"
+                    >
+                      <input
+                        type="checkbox"
+                        className="absolute opacity-0 h-full w-full"
+                        value={industry.name.replace(" ", "")}
+                        onChange={handleIndustryChange}
+                      />
+                      <span className="text-xs">{industry.name}</span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -162,9 +203,27 @@ function Filter() {
               </div>
             </details>
           </div>
+
+          <div className="flex justify-around gap-2 mt-4">
+            <div className="flex flex-col gap-1">
+              <h3 className="text-[0.875rem] text-center font-bold">
+                strategy
+              </h3>
+              <WheelPicker
+                list={["Big Option Buys", "Merger Arbitrage", "Short Reports"]}
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <h3 className="text-[0.875rem] text-center font-bold">asset</h3>
+              <WheelPicker list={["Stocks", "Options", "Futures"]} />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-4 mx-auto w-fit">
+      <div className="mt-4 flex justify-center gap-4">
+        <ButtonSecondary size="lg" py="5px" px="1.5rem">
+          Save Filter
+        </ButtonSecondary>
         <ButtonPrimary size="lg" py="5px" px="3rem">
           Apply
         </ButtonPrimary>

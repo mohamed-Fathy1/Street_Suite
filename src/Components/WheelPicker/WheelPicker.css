@@ -1,0 +1,64 @@
+.wheel {
+  max-height: 70px;
+  overflow-y: scroll;
+  position: relative;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.418) 0px -23px 30px -31px inset,
+    rgba(0, 0, 0, 0.473) 0px 23px 30px -31px inset;
+
+  scroll-snap-type: y mandatory;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.wheel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.wheel {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.wheel ul {
+  list-style-type: none;
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 4rem;
+}
+
+.wheel li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  flex-grow: 0;
+  padding: 0.1rem 1rem;
+  border-radius: 0.5rem;
+
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  transition: background-color 0.3s;
+}
+
+.wheel li.wheel-selected {
+}
+
+.wheel li:has(+ .wheel-selected) {
+  transform: perspective(1000px) rotateX(45deg);
+}
+
+.wheel li.wheel-selected + li {
+  transform: perspective(1000px) rotateX(-45deg);
+}
+
+.wheel-indicator {
+  position: absolute;
+  height: 1.3rem;
+  z-index: 0;
+  border-radius: 0.5rem;
+  width: 100%;
+  background-color: #53acff;
+  top: 50%;
+  transform: translateY(-50%);
+}

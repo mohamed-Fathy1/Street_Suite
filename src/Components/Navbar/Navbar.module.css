@@ -23,7 +23,7 @@
     max-width: 3.938rem;
     min-width: 3.9rem;
     /* left: 7px; */
-    z-index: 1000;
+    z-index: 19;
     top: 0;
     transition: all 0.4s cubic-bezier(0.11, 0.59, 0.18, 1.63);
   }
@@ -92,15 +92,15 @@
     width: 100%;
   }
 
-  .active:hover .navbar_item_title {
+  .navbar .active:hover .navbar_item_title {
     color: #53acff;
   }
 
-  li:not(.active) .navbar_item_title {
+  .navbar li:not(.active) .navbar_item_title {
     color: #5d5d5d;
   }
 
-  li:not(.active)::after {
+  .navbar li:not(.active)::after {
     content: "Coming Soon";
     display: flex;
     justify-content: center;
@@ -193,11 +193,5 @@
   .navbar:hover footer .footer_trademark {
     visibility: visible;
     opacity: 1;
-  }
-}
-
-@media (min-width: 568px) {
-  .navbar footer .footer_noti {
-    display: none;
   }
 }
