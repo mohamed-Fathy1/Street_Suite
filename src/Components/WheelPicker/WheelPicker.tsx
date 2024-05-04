@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./WheelPicker.css";
 
 function WheelPicker({ list }: { list: string[] }) {
   const targetRef = useRef(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -12,7 +11,7 @@ function WheelPicker({ list }: { list: string[] }) {
       threshold: 1, // fully intersects
     };
 
-    const callback = (entries) => {
+    const callback = (entries: any) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         console.log(entry.intersectionRatio);
         // Check if the entry is intersecting
@@ -70,7 +69,9 @@ function WheelPicker({ list }: { list: string[] }) {
   // selectedLi?.classList.remove("wheel-selected");
 
   useEffect(() => {
-    targetRef?.current?.nextElementSibling?.scrollTo(0, 50);
+    if (targetRef.current) {
+      (targetRef.current as HTMLElement).nextElementSibling?.scrollTo(0, 50);
+    }
   }, []);
 
   return (
