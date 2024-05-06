@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ButtonPrimary from "../../Components/Buttons/ButtonPrimary";
 import Filter from "../../Components/Filter/Filter";
 import HeaderTitle from "../../Components/HeaderTitle";
@@ -7,9 +7,18 @@ import StockDataContainer from "../../Components/StockDataContainer/StockDataCon
 import NotificationBellIcon from "../../assets/svg/Desktop/NotificationBellIcon";
 import "./Alerts.css";
 import classNames from "classnames";
+import { debounce } from "lodash";
 
 function Alerts() {
   const [openFilter, setOpenFilter] = useState(false);
+
+  const [search, setSearch] = useState("");
+
+  const searchHandler = (value: string) => {
+    setSearch(value);
+  };
+
+  const debouncedSearchHandler = useCallback(debounce(searchHandler, 300), []);
 
   return (
     <div className=" pl-3 pt-7 flex gap-5 flex-1 h-dvh">
@@ -18,7 +27,7 @@ function Alerts() {
           <HeaderTitle color="white" sideColor="#53ACFF">
             Alerts
           </HeaderTitle>
-          <SearchBar />
+          <SearchBar setSearch={debouncedSearchHandler} />
           <div
             className="block mr-1 lg:hidden"
             onClick={() => setOpenFilter(true)}
@@ -32,7 +41,7 @@ function Alerts() {
           </div>
         </header>
         <main className="mt-5 pr-2 overflow-auto main">
-          <StockDataContainer />
+          <StockDataContainer searchReasult={search} />
         </main>
       </div>
       <div
